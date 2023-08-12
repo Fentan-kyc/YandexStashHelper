@@ -6,8 +6,7 @@
 // @author       Fentan
 // @require	     https://cdn.jsdelivr.net/npm/toastify-js
 // @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
-// @match        https://logistics.market.yandex.ru/tpl-outlet/22110915/cargo-placement/
-// @match        https://logistics.market.yandex.ru/tpl-outlet/22110915/cargo-placement
+// @match        https://logistics.market.yandex.ru/tpl-outlet/*/cargo-placement
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=yandex.ru
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
@@ -15,9 +14,14 @@
 // ==/UserScript==
 
 const TOAST_DURATION = 10 * 1000
+
+
+
+
+var accessToken;
 var canvas = document.createElement('canvas');
 
-(function() {
+(async function() {
     GM_addStyle(GM_getResourceText('TOASTIFY_CSS'));
 	canvas.width = 2000;
 	canvas.height = 2000;
@@ -26,20 +30,18 @@ var canvas = document.createElement('canvas');
 
 	
 	Toastify({
-  text: "X",
-  duration: -1,
-  newWindow: true,
-  close: false,
-  gravity: "bottom", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-  onClick: function(){doSomething()} // Callback after click
-}).showToast();
+		text: 'Obtaining access token...',
+		duration: TOAST_DURATION
+	}).showToast();
+	accessToken = await getAccessToken();
+	Toastify({
+		text: `Obtained access token ${accessToken}!`,
+		duration: TOAST_DURATION
+	}).showToast();
+    
 })();
 
-const doSomething = () =>{
-    document.body.style.color = 'red'
+async function getAccessToken() {
+    const url = window.location.href;
+	return url.split('/')[4];
 }
