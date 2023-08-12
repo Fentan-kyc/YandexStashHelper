@@ -24,9 +24,22 @@ var canvas = document.createElement('canvas');
 	canvas.style.display = 'none';
 	canvas = document.body.appendChild(canvas);
 
-	// Get the token
+	
 	Toastify({
-		text: 'Hi...I\'m alive!',
-		duration: TOAST_DURATION
-	}).showToast();
+  text: "X",
+  duration: -1,
+  newWindow: true,
+  close: false,
+  gravity: "bottom", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){doSomething()} // Callback after click
+}).showToast();
 })();
+
+const doSomething = () =>{
+    document.body.style.color = 'red'
+}
