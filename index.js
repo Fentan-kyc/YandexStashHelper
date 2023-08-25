@@ -21,28 +21,12 @@ const TOAST_DURATION = 10 * -1
 
 
 var accessToken;
-var canvas = document.createElement('canvas');
+var secretKey;
 var button = document.createElement('button');
 var menu = document.createElement('div');
 
 (async function() {
-    GM_addStyle(GM_getResourceText('TOASTIFY_CSS'));
-	canvas.width = 2000;
-	canvas.height = 2000;
-	canvas.style.display = 'none';
-	canvas = document.body.appendChild(canvas);
-
-
-	Toastify({
-		text: 'Obtaining access token...',
-		duration: TOAST_DURATION
-	}).showToast();
-	accessToken = await getAccessToken();
-	Toastify({
-		text: `Obtained access token ${accessToken}!`,
-		duration: TOAST_DURATION
-	}).showToast();
-
+    createMenu();
     createButton();
 
 })();
@@ -68,11 +52,44 @@ function createButton(){
     button = document.body.appendChild(button);
 
     button.onclick = function(){
-        alert("пишу")
+        if(menu.style.display == "none")
+        {
+            menu.style.display = "inline-block"
+        } else{
+            menu.style.display = "none"
+        }
     }
 }
 
 function createMenu(){
-    menu.innerText = "Text";
-    menu.style.backgroundColor="red"
+    button.className = "YandexHelper__Menu";
+    menu.style.backgroundColor="#343334"
+    menu.style.width="250px"
+    menu.style.height="700px"
+    menu.style.display = "inline-block";
+    menu.style.top = "90px";
+    menu.style.position = "fixed";
+    menu.style.right = "10px";
+    menu.style.font = "inherit"
+    menu.style.zIndex = 2147483647;
+    menu.style.textAlign = "center";
+    menu.style.alignItems = "center";
+    menu.style.padding = "15px 3px";
+    menu.style.color = "white";
+    menu.style.fontSize = "16px";
+
+    var flexContainer = document.createElement('div')
+    flexContainer.style.display = "flex";
+    flexContainer.style.flexDirection = "column";
+
+    var text = document.createElement('div');
+    text.innerText = "Helper";
+    text.style.paddingBottom = "7px";
+    var input = document.createElement('input');
+
+    flexContainer.append(text, input);
+    menu.appendChild(flexContainer);
+    menu = document.body.appendChild(menu);
+
+    
 }
