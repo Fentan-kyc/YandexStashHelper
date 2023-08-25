@@ -66,6 +66,6 @@ function createButton(){
     button = document.body.appendChild(button);
 
     button.onclick = function(){
-        alert("Прогу помощник пишу")
+        alert("пишу")
     }
 }
