@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fentan-kyc YandexStashHelper
 // @namespace    https://github.com/Fentan-kyc/YandexStashHelper
-// @version      0.2
+// @version      0.3
 // @description  Script for helping with perfect YandexMarket web-aplication
 // @author       Fentan
 // @match        https://logistics.market.yandex.ru/tpl-outlet/*/cargo-placement
