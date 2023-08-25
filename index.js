@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         YandexStashHelper Script
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
+// @namespace    https://github.com/Fentan-kyc/YandexStashHelper
+// @version      0.2
+// @description  Script for helping with perfect YandexMarket web-aplication
 // @author       Fentan
-// @require	     https://cdn.jsdelivr.net/npm/toastify-js
-// @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
 // @match        https://logistics.market.yandex.ru/tpl-outlet/*/cargo-placement
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=yandex.ru
+// @require	     https://cdn.jsdelivr.net/npm/toastify-js
+// @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
+// @updateURL    https://github.com/Fentan-kyc/YandexStashHelper/raw/main/index.js
+// @downloadURL  https://github.com/Fentan-kyc/YandexStashHelper/main/index.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // @grant GM.xmlHttpRequest
