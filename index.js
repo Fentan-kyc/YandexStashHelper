@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         YandexStashHelper Script
+// @name         Fentan-kyc YandexStashHelper
 // @namespace    https://github.com/Fentan-kyc/YandexStashHelper
 // @version      0.2
 // @description  Script for helping with perfect YandexMarket web-aplication
