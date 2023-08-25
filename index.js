@@ -23,6 +23,7 @@ const TOAST_DURATION = 10 * -1
 var accessToken;
 var canvas = document.createElement('canvas');
 var button = document.createElement('button');
+var menu = document.createElement('div');
 
 (async function() {
     GM_addStyle(GM_getResourceText('TOASTIFY_CSS'));
@@ -41,6 +42,7 @@ var button = document.createElement('button');
 		text: `Obtained access token ${accessToken}!`,
 		duration: TOAST_DURATION
 	}).showToast();
+
     createButton();
 
 })();
@@ -68,4 +70,9 @@ function createButton(){
     button.onclick = function(){
         alert("пишу")
     }
+}
+
+function createMenu(){
+    menu.innerText = "Text";
+    menu.style.backgroundColor="red"
 }
