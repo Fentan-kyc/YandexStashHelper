@@ -29,6 +29,16 @@ var menu = document.createElement('div');
     createMenu();
     createButton();
 
+    (function(open) {
+        XMLHttpRequest.prototype.open = function(XMLHttpRequest) {
+          var self = this;
+          this.addEventListener("readystatechange", function() {
+            console.log(this);
+          }, false);
+          open.apply(this, arguments);
+        };
+      })(XMLHttpRequest.prototype.open);
+
 })();
 
 async function getAccessToken() {
@@ -90,6 +100,5 @@ function createMenu(){
     flexContainer.append(text, input);
     menu.appendChild(flexContainer);
     menu = document.body.appendChild(menu);
-
     
 }
