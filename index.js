@@ -33,7 +33,9 @@ var menu = document.createElement('div');
         XMLHttpRequest.prototype.open = function(XMLHttpRequest) {
           var self = this;
           this.addEventListener("readystatechange", function() {
-            console.log(this);
+            if(true){
+                console.log(this.HEADERS_RECEIVED)
+            }
           }, false);
           open.apply(this, arguments);
         };
